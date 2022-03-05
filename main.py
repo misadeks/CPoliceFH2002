@@ -19,8 +19,8 @@ def get_window_size():
 
 
 def draw_sierpinski(size: int, iteration: int, x: int, y: int):
-    color = "black" if iteration == 1 else "white"
-    if iteration:
+    color = "black" if iteration == 0 else "white"
+    if iteration >= 0:
         draw_triangle(size, x, y, color)
         draw_sierpinski(int(size / 2), iteration - 1, *top_starting_point(int(size), x, y))
         draw_sierpinski(int(size / 2), iteration - 1, x, y)
@@ -54,7 +54,7 @@ def main():
     turtle.tracer(0, 0)
     size = get_window_size()
     for i in range(8):
-        screen.title(f"Sierpiński triangle - {i + 1}. iteration")
+        screen.title(f"Sierpiński triangle - {i}. iteration")
         draw_sierpinski(size, i, -size // 2, -int(size * 0.4))
         turtle.update()
         time.sleep(1.25)
