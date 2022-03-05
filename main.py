@@ -1,7 +1,6 @@
 import turtle
 import math
-
-iteration = 0
+import time
 
 
 def get_screen_resolution():
@@ -45,32 +44,25 @@ def draw_triangle(size: int, x: int, y: int, color):
 
 
 def top_starting_point(size: int, x: int, y: int):
-    x_top = x + (size / 4)
-    y_top = y + (size / 2) * math.sqrt(3) / 2
-    return int(x_top), int(y_top)
-
-
-def one_step():
-    global iteration
-    print(iteration)
-    # screen.title(f"Sierpiński triangle - generation {iteration}")
-    size = get_window_size()
-    draw_sierpinski(size, iteration, -size // 2, -int(size*0.4))
-    iteration += 1
-    turtle.update()
-    if iteration < 7:
-        turtle.ontimer(one_step, 1250)
-    else:
-        turtle.done()
+    x_top = x + size // 4
+    y_top = y + size * math.sqrt(3) / 4
+    return x_top, math.floor(y_top)
 
 
 def main():
     screen = turtle.Screen()
-    screen.title(f"Sierpiński triangle")
     turtle.tracer(0, 0)
-    one_step()
-    screen.mainloop()
+    size = get_window_size()
+    for i in range(8):
+        screen.title(f"Sierpiński triangle - {i + 1}. iteration")
+        draw_sierpinski(size, i, -size // 2, -int(size * 0.4))
+        turtle.update()
+        time.sleep(1.25)
+    turtle.done()
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except turtle.Terminator:
+        exit(0)
