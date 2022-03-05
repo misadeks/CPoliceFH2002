@@ -42,7 +42,7 @@ def main():
             screen.title(f"Sierpiński triangle - generation {i}")
             draw_sierpinski(800, i, -400, -320)
             turtle.update()
-            time.sleep(1.25)8
+            time.sleep(1.25)
         turtle.done()
     except turtle.Terminator:
         pass
