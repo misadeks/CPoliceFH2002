@@ -13,7 +13,7 @@ def get_screen_resolution():
     return screen_width, screen_height
 
 
-def get_widnow_size():
+def get_window_size():
     resolution = get_screen_resolution()
     min_dimension = min(resolution[0], resolution[1])
     return int(0.75 * (min_dimension / 100) * 100)
@@ -54,7 +54,7 @@ def one_step():
     global iteration
     print(iteration)
     # screen.title(f"Sierpiński triangle - generation {iteration}")
-    size = get_widnow_size()
+    size = get_window_size()
     draw_sierpinski(size, iteration, -size // 2, -int(size*0.4))
     iteration += 1
     turtle.update()
