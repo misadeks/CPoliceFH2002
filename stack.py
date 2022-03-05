@@ -23,6 +23,9 @@ class Stack:
     def pop(self):
         self.data.pop()
 
+    def top(self):
+        return self.data[-1]
+
     def take(self):
         value = self.data[-1]
         self.data.pop()

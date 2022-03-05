@@ -2,6 +2,8 @@ import turtle
 import math
 import time
 
+from stack import *
+
 
 def get_screen_resolution():
     import tkinter as tk
@@ -18,13 +20,20 @@ def get_window_size():
     return int(0.75 * (min_dimension / 100) * 100)
 
 
+def get_color(iter):
+    return "black" if iter == 0 else "white"
+
+
 def draw_sierpinski(size: int, iteration: int, x: int, y: int):
-    color = "black" if iteration == 0 else "white"
-    if iteration >= 0:
-        draw_triangle(size, x, y, color)
-        draw_sierpinski(int(size / 2), iteration - 1, *top_starting_point(int(size), x, y))
-        draw_sierpinski(int(size / 2), iteration - 1, x, y)
-        draw_sierpinski(int(size / 2), iteration - 1, x + int(size / 2), y)
+    s = Stack()
+    s.push((size, iteration, x, y))
+    while not s.empty():
+        size, level, x, y = s.take()
+        if level >= 0:
+            draw_triangle(size, x, y, get_color(level))
+            s.push((size // 2, level - 1, x + size//2, y))
+            s.push((size // 2, level - 1, x, y))
+            s.push((size // 2, level - 1, *top_starting_point(size, x, y)))
 
 
 def draw_triangle(size: int, x: int, y: int, color):
