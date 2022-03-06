@@ -15,6 +15,8 @@ def main():
         generation_number = int(input(
             f"{ConsoleColors.BOLD}Uneti broj generacija (podrazumevano "
             f"{ConsoleColors.OKBLUE}6{ConsoleColors.ENDC}{ConsoleColors.BOLD}): {ConsoleColors.ENDC}"))
+        if generation_number < 0:
+            raise ValueError
     except:
         print(f"{ConsoleColors.WARNING}Korišćena je podrazumevana vrednost {ConsoleColors.OKBLUE}6{ConsoleColors.ENDC}")
         generation_number = 6
@@ -30,6 +32,8 @@ def main():
         option = int(input(
             f"{ConsoleColors.BOLD}Uneti redni broj ispred željenje opcije (podrazumevano "
             f"{ConsoleColors.OKBLUE}0{ConsoleColors.ENDC}{ConsoleColors.BOLD}): {ConsoleColors.ENDC}"))
+        if option not in range(0, 5):
+            raise ValueError
     except:
         print(f"{ConsoleColors.WARNING}Korišćena je podrazumevana vrednost {ConsoleColors.OKBLUE}0{ConsoleColors.ENDC}")
         option = 0
