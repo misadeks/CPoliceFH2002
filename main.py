@@ -1,11 +1,11 @@
 import time
-
-from util import get_window_size, ConsoleColors
+import turtle
+from util import window_size, ConsoleColors
 from IterativeSierpinskiDrawer import *
 
 
-def get_origin_position(size):
-    return 0, -size // 8
+def stop():
+    turtle.bye()
 
 
 def main():
@@ -17,7 +17,7 @@ def main():
             f"{ConsoleColors.OKBLUE}6{ConsoleColors.ENDC}{ConsoleColors.BOLD}): {ConsoleColors.ENDC}"))
         if generation_number < 0:
             raise ValueError
-    except:
+    except ValueError:
         print(f"{ConsoleColors.WARNING}Korišćena je podrazumevana vrednost {ConsoleColors.OKBLUE}6{ConsoleColors.ENDC}")
         generation_number = 6
 
@@ -34,14 +34,18 @@ def main():
             f"{ConsoleColors.OKBLUE}0{ConsoleColors.ENDC}{ConsoleColors.BOLD}): {ConsoleColors.ENDC}"))
         if option not in range(0, 5):
             raise ValueError
-    except:
+    except ValueError:
         print(f"{ConsoleColors.WARNING}Korišćena je podrazumevana vrednost {ConsoleColors.OKBLUE}0{ConsoleColors.ENDC}")
         option = 0
 
     screen = turtle.Screen()
-    size = get_window_size()
-    position = get_origin_position(size)
-    drawer = IterativeSierpinksiDrawer(screen, size, position, option)
+    screen_size = window_size()
+    position = Position.origin_position(screen_size)
+    drawer = IterativeSierpinksiDrawer(screen, screen_size, position, option)
+
+    canvas = screen.getcanvas()
+    root = canvas.winfo_toplevel()
+    root.protocol("WM_DELETE_WINDOW", stop)
 
     print(f"{ConsoleColors.OKGREEN}Crtanje započeto!{ConsoleColors.ENDC}")
     for i in range(generation_number + 1):
@@ -49,7 +53,8 @@ def main():
         drawer.draw_next()
         turtle.update()
         time.sleep(0.75)
-    turtle.done()
+
+    turtle.mainloop()
 
 
 if __name__ == '__main__':
