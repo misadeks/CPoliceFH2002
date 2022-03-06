@@ -6,7 +6,7 @@ pomoću nasumično generisanih boja
 
 ## Uputstvo
 
-Pokretanjem main.py fajla pokreće se konzolni korisnički interfejs preko kojeg se zadaju parametri iscrtavanja trougla Sjerpinskog.
+Pokretanjem main.py fajla pokreće se konzolni korisnički interfejs preko kojeg se zadaju parametri iscrtavanja trougla Sjerpinskog, kao i GUI u kojem će se vršiti iscrtavanje. Pratite uputstva na konzolnom interfejsu.
 
 Parametar broj generacija predstavlja broj rekurzivnih podela.
 
