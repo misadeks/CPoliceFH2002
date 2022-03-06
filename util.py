@@ -1,29 +1,31 @@
-import random
-
-def get_screen_resolution():
-    import tkinter as tk
-    (root := tk.Tk()).withdraw()
-
-    screen_width = root.winfo_screenwidth()
-    screen_height = root.winfo_screenheight()
-    return screen_width, screen_height
+resolution_cached = False
+resolution_cache = None
 
 
-def get_window_size():
-    resolution = get_screen_resolution()
+def screen_resolution() -> tuple[int, int]:
+    """This method gets the size of the users screen in pixels"""
+    global resolution_cache, resolution_cached
+    if not resolution_cached:
+        import tkinter as tk
+        (root := tk.Tk()).withdraw()
+
+        screen_width = root.winfo_screenwidth()
+        screen_height = root.winfo_screenheight()
+        resolution_cached = True
+        resolution_cache = screen_width, screen_height
+
+    return resolution_cache
+
+
+def window_size() -> int:
+    """This method calculates optimal size of the window, based on user's screen"""
+    resolution = screen_resolution()
     min_dimension = min(resolution[0], resolution[1])
     return int(0.75 * (min_dimension / 100) * 100)
 
 
-def get_random_color():
-    num = random.randint(0, 2**24)
-    r = (num & 0xff0000) >> 16
-    g = (num & 0x00ff00) >> 8
-    b = num & 0x0000ff
-    return r, g, b
-
-
 class ConsoleColors:
+    """This class holds color values for the console output"""
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKCYAN = '\033[96m'
