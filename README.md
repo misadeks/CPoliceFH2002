@@ -8,7 +8,7 @@ pomoću nasumično generisanih boja
 
 Pokretanjem main.py fajla pokreće se konzolni korisnički interfejs preko kojeg se zadaju parametri iscrtavanja trougla Sjerpinskog.
 
-Parametar broj generacija predstavlja broj rekurzivnih podela
+Parametar broj generacija predstavlja broj rekurzivnih podela.
 
 Parametar način crtanja predstavlja različite izglede dobijenog trougla, opisani u sledećoj tabeli:
 
