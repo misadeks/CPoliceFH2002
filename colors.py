@@ -1,12 +1,10 @@
 import random
 
-Color = tuple[int, int, int]
-
 
 class Colors:
     """This class has methods for generating colors"""
     @staticmethod
-    def random() -> Color:
+    def random():
         """This method generates a new color in rgb color system"""
         num = random.randint(0, 2**24)
         r = (num & 0xff0000) >> 16
@@ -15,6 +13,6 @@ class Colors:
         return r, g, b
 
     @staticmethod
-    def random_pallet(size: int) -> list[Color]:
+    def random_pallet(size: int):
         """This method generates a list of several rgb colors"""
         return [Colors.random() for i in range(size)]

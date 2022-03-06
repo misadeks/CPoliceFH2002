@@ -30,7 +30,7 @@ class IterativeSierpinksiDrawer:
         turtle.tracer(0, 0)
         turtle.colormode(255)
 
-    def __pick_color(self, index: int) -> str | tuple[int, int, int]:
+    def __pick_color(self, index: int):
         """Depending on the drawing mode, picks the color for the next layer"""
         ind = 0
         if self.mode in (1, 3):

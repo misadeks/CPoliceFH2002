@@ -2,7 +2,7 @@ resolution_cached = False
 resolution_cache = None
 
 
-def screen_resolution() -> tuple[int, int]:
+def screen_resolution():
     """This method gets the size of the users screen in pixels"""
     global resolution_cache, resolution_cached
     if not resolution_cached:

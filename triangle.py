@@ -1,8 +1,6 @@
 import turtle
 from position import *
 
-TriangleTuple = tuple[Position, Position, Position]
-
 
 class Triangle:
     def __init__(self, bottom_left_v: Position, bottom_right: Position, top_v: Position):
@@ -10,7 +8,7 @@ class Triangle:
         self.bottom_right_v = bottom_right
         self.top_v = top_v
 
-    def get(self) -> TriangleTuple:
+    def get(self):
         return self.bottom_left_v, self.bottom_right_v, self.top_v
 
     def base_midpoint(self):

@@ -1,4 +1,3 @@
-PositionTuple = tuple[int, int]
 
 
 class Position:
@@ -7,7 +6,7 @@ class Position:
         self.x = x
         self.y = y
 
-    def get(self) -> PositionTuple:
+    def get(self) :
         """returns a tuple representation of the position"""
         return self.x, self.y
 

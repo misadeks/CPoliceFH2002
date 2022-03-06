@@ -1,11 +1,6 @@
 import time
-import turtle
 from util import window_size, ConsoleColors
 from IterativeSierpinskiDrawer import *
-
-
-def stop():
-    turtle.bye()
 
 
 def main():
@@ -42,10 +37,6 @@ def main():
     screen_size = window_size()
     position = Position.origin_position(screen_size)
     drawer = IterativeSierpinksiDrawer(screen, screen_size, position, option)
-
-    canvas = screen.getcanvas()
-    root = canvas.winfo_toplevel()
-    root.protocol("WM_DELETE_WINDOW", stop)
 
     print(f"{ConsoleColors.OKGREEN}Crtanje započeto!{ConsoleColors.ENDC}")
     for i in range(generation_number + 1):
