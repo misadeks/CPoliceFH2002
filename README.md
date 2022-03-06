@@ -10,7 +10,7 @@ Pokretanjem main.py fajla pokreće se konzolni korisnički interfejs preko kojeg
 
 Parametar broj generacija predstavlja broj rekurzivnih podela
 
-Parametar način crtanja predstavlja različite izglede dobijenog trougla.
+Parametar način crtanja predstavlja različite izglede dobijenog trougla, opisani u sledećoj tabeli:
 
 | Redni broj | Opis      | Dodatno
 | ---        | ---       | ---
