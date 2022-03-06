@@ -13,7 +13,7 @@ Parametar broj generacija predstavlja broj rekurzivnih podela
 Parametar način crtanja predstavlja različite izglede dobijenog trougla.
 
 | Redni broj | Opis      | Dodatno
-| ---        | ---       |
+| ---        | ---       | ---
 | 0          | crno-belo | klasičan izgled
 | 1          | 3 predefinisane boje | eksperimentalno
 | 2          | 4 predefinisane boje | eksperimentalno
